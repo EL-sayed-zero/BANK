@@ -52,4 +52,22 @@ public:
         
     }
 
+
+
+    static Employee parse_to_Employee(string line) {
+
+        vector<string>part = split(line);
+
+
+
+        string name = part[0];
+        int id = stoi(part[1]);
+        double  balance = stod(part[2]);
+        string  password = part[3];
+
+        return Employee(balance, id, name, password);
+
+    }
+
+
 };
