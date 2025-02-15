@@ -27,7 +27,7 @@ public:
 
     }
 
-    void  remove_all_employee() {
+    void remove_all_employee() {
 
         fstream check_file("Employee.txt");
         if (!check_file.good()) {
@@ -74,7 +74,7 @@ public:
         }
 
 
-         void  remove_all_Clients() {
+         void  remove_clients() {
             ofstream file("client.txt", ios::trunc);
             if (!file) {
                 cout << "There was an error with the file.";
@@ -124,7 +124,7 @@ public:
         }
 
 
-         void delete_Admin() {
+         void remove_admin(){
 
             ofstream file("admin.txt", ios::trunc);
             if (!file) {
