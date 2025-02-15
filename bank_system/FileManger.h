@@ -13,7 +13,7 @@ public:
 
 
 
-    void static add_Employee(Employee person) {
+    void add_Employee(Employee person) {
         fstream file("Employee.txt");
         if (!file.good()) {
             ofstream employeefile("Employee.txt");
@@ -27,7 +27,7 @@ public:
 
     }
 
-    void static remove_all_employee() {
+    void  remove_all_employee() {
 
         fstream check_file("Employee.txt");
         if (!check_file.good()) {
@@ -40,7 +40,7 @@ public:
 
 
 
-    static void get_all_employee() {
+     void get_all_employee() {
 
         ifstream file("Employee.txt", ios::in);
         string line;
@@ -51,14 +51,14 @@ public:
 
         while (getline(file, line)) {
 
-            cout << line << endl;  //ahmed|20|6888|300idufuf
+            cout << line << endl;  
         }
 
         file.close();
 
     }
 
-        static void  add_Client(Client person) {
+         void  add_Client(Client person) {
 
             ofstream file("client.txt", ios::app);
             if (!file.good()) {
@@ -74,7 +74,7 @@ public:
         }
 
 
-        static void  remove_all_Clients() {
+         void  remove_all_Clients() {
             ofstream file("client.txt", ios::trunc);
             if (!file) {
                 cout << "There was an error with the file.";
@@ -86,7 +86,7 @@ public:
 
         }
 
-        static void get_all_clients() {
+         void get_all_clients() {
 
             ifstream file("client.txt", ios::in);
             if (!file) {
@@ -108,7 +108,7 @@ public:
 
 
 
-        static void add_admin(Admin admin) {
+         void add_admin(Admin admin) {
 
             ofstream file("admin.txt", ios::app);
 
@@ -124,7 +124,7 @@ public:
         }
 
 
-        static void delete_Admin() {
+         void delete_Admin() {
 
             ofstream file("admin.txt", ios::trunc);
             if (!file) {
@@ -137,7 +137,7 @@ public:
 
 
 
-        static void get_all_admin() {
+         void get_all_admin() {
 
             ifstream file("admin.txt", ios::in);
             if (!file) {
