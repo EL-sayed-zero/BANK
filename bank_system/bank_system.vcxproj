@@ -133,6 +133,7 @@
     <ClCompile Include="DataSourceInterface.cpp" />
     <ClCompile Include="Employee.cpp" />
     <ClCompile Include="FileManger.cpp" />
+    <ClCompile Include="ParserRead.cpp" />
     <ClCompile Include="Person.cpp" />
     <ClCompile Include="Validation.cpp" />
   </ItemGroup>
@@ -142,6 +143,7 @@
     <ClInclude Include="DataSourceInterface.h" />
     <ClInclude Include="Employee.h" />
     <ClInclude Include="FileManger.h" />
+    <ClInclude Include="ParserRead.h" />
     <ClInclude Include="Person.h" />
     <ClInclude Include="Validation.h" />
   </ItemGroup>
