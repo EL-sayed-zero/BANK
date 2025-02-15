@@ -19,7 +19,7 @@ public:
             ofstream employeefile("Employee.txt");
             employeefile << person.getId() << "|" << person.getName() << "|" << person.getPassword() << "|" << person.getSalary() << endl;
             employeefile.close();
-            return;
+            return; 
         }
         ofstream employeefile("Employee.txt", ios::app);
         employeefile << person.getId() << "|" << person.getName() << "|" << person.getPassword() << "|" << person.getSalary() << endl;
