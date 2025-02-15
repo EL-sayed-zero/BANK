@@ -52,4 +52,28 @@ public:
         
     }
 
+
+    static Admin parse_to_admin(string line) {//ahmed|20|6888|300idufuf
+
+
+
+
+        vector<string>part = split(line);
+
+            
+      
+
+        string name = part[0];
+        int id = stoi(part[1]);
+        double  salary= stod(part[2]);
+        string  password = part[3];
+
+        return Admin (salary, id, name, password);
+
+
+
+
+
+    }
+
 };
