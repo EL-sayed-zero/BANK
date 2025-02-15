@@ -75,5 +75,18 @@ public:
 
 
     }
+    static Employee parse_to_Employee(string line) {
 
+        vector<string>part = split(line);
+
+
+
+        string name = part[0];
+        int id = stoi(part[1]);
+        double  salary = stod(part[3]);
+        string  password = part[4];
+
+        return Employee(salary, id, name, password);
+
+    }
 };

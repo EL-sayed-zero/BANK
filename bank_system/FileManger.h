@@ -13,16 +13,16 @@ public:
 
 
 
-    void add_Employee(Employee person) {
+   static void add_Employee(Employee person) {
         fstream file("Employee.txt");
         if (!file.good()) {
             ofstream employeefile("Employee.txt");
-            employeefile << person.getId() << "|" << person.getName() << "|" << person.getPassword() << "|" << person.getSalary() << endl;
+            employeefile  << person.getName() << "|" << person.getId() << "|" << person.getSalary() << "|" << person.getPassword() << endl;
             employeefile.close();
             return; 
         }
         ofstream employeefile("Employee.txt", ios::app);
-        employeefile << person.getId() << "|" << person.getName() << "|" << person.getPassword() << "|" << person.getSalary() << endl;
+        employeefile << person.getName() << "|" << person.getId() << "|" << person.getSalary() << "|" << person.getPassword() << endl;
         employeefile.close();
 
     }
