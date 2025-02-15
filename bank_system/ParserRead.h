@@ -16,6 +16,7 @@ class ParserREad {
 
     // main split 
 public:
+    //ahmed|20|6888|300idufuf
     static vector<string> split(string line) {
         vector<string> splitResult;
         stringstream strs(line);
@@ -25,41 +26,30 @@ public:
             splitResult.push_back(part);
         }
 
-        return splitResult;
+        return splitResult; //[sahhdd,id.jddkd.iddijd]
     }
 
 
-    static Client parse_to_client(string line) {
-
-
-        ifstream file("client.txtt", ios::in);
-        if (!file) {
-            cout << " can not find file";
-            exit(0);
-        }
-        Client client;
-        int id;
-        double balance;
-        string name, password;
-
-
-        while (getline(file, line)) {
+    static Client parse_to_client(string line) {//ahmed|20|6888|300idufuf
 
 
 
-            vector<string>part = split(line);
+
+            vector<string>part = split(line); 
+
+       
+          
+            string name = part[0];
+           int id = stoi(part[1]);
+          double  balance = stod(part[2]);
+          string  password = part[3];
+
+        return Client (balance, id, name, password);
+
+         
+
+ 
         
-            name = part[0];
-            id = stoi(part[1]);
-            balance = stod(part[2]);
-            password = part[3];
-
-
-
-        }
-
-        file.close();
-        return  Client(balance, id, name, password);
     }
 
 };

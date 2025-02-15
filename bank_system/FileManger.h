@@ -51,7 +51,7 @@ public:
 
         while (getline(file, line)) {
 
-            cout << line << endl;
+            cout << line << endl;  //ahmed|20|6888|300idufuf
         }
 
         file.close();
