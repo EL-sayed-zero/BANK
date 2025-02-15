@@ -11,29 +11,32 @@ class FileManger :
     // i make static func to use the class without obj 
 public:
 
-    static bool  fileexist(string filename) { // you dont need this  fucntion                                                               
-        ifstream file(filename);               // you can only use the  (.good() )  for cheack if the file is found or not  
-        return file.good();                     // look at to the end of page and see my method ;;;;            
-    }
-    static void  add_Employee(Employee person) {
-        if (!fileexist("Employee.txt")) {
+   
+
+    void static add_Employee(Employee person) {
+        fstream file("Employee.txt");
+        if (!file.good()) {
             ofstream employeefile("Employee.txt");
-            employeefile << person.getId() << "|" << person.getName() << "|" << person.getPassword() << "\n";
+            employeefile << person.getId() << " " << person.getName() << " " << person.getPassword() << endl;
             employeefile.close();
             return;
         }
         ofstream employeefile("Employee.txt", ios::app);
-        employeefile << person.getId() << "|" << person.getName() << "|" << person.getPassword() << "\n";
+        employeefile << person.getId() << " " << person.getName() << " " << person.getPassword() << endl;
         employeefile.close();
 
     }
 
-   static void  remove_all_employee() {  //edit this method ??? 
-        if (!fileexist("Employee.txt")) {
+    void static remove_all_employee() {
+
+        fstream check_file("Employee.txt");
+        if (!check_file.good()) {
             return;
         }
-
-   }
+        check_file.close();
+        ofstream file("Employee.txt", ios::trunc);
+        file.close();
+    }
 
 
 
