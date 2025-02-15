@@ -37,6 +37,23 @@ public:
 
 
 
+   static void get_all_employee() {
+
+       ifstream file("Employee.txt", ios::in);
+           string line;
+           if (!file) {
+               cout << "file not found ";
+               return;
+           }
+
+           while (getline(file, line)){
+
+               cout << line << endl;
+           }
+        
+   }
+
+
 
 
      
@@ -84,48 +101,26 @@ public:
         
     }
 
-   static vector<Client> get_all_clients() {
+   static void get_all_clients() {
 
-        ifstream file("client.txt",ios::in);
-        if (!file) {
-            cout << "there was an erroe with file ";
-            exit(0);
-        }
-        vector<Client>clients;
-        string line;
-
-
-        while (getline(file, line)) {
-
-           
-                //split the lines use obj from stringstream
-                stringstream strs(line);
-          
-                string id,balnce,name,password;
-
-                getline(strs, name, '|');
-                getline(strs, id, '|');
-                getline(strs, balnce, '|');
-                getline(strs, password, '\n');
-            
-                //convert 
-                int clientid = stoi(id);
-                double clientbalanc =stod(balnce);
+       ifstream file("client.txt", ios::in);
+       if (!file) {
+           cout << "there was an erroe with file ";
+           exit(0);
+       }
+       ;
+       string line;
 
 
-                Client c(clientbalanc, clientid, name, password);
-                clients.push_back(c);
+       while (getline(file, line)) {
+
+           cout << line << endl;
 
 
-            }
-        file.close();
-        return clients;
+       }
 
-             
-    }
-  
-
-        //ADD admin files 
+   }
+        
 
 
    static void add_admin(Admin admin) {
@@ -136,7 +131,7 @@ public:
            cout << "file not exist ";
            exit(0);
        }
-       file << admin.getName() << "|";
+       file << admin.getName() <<"|";
        file << admin.getId() << "|";
        file << admin.getSalary() << "|";
        file << admin.getPassword() << "\n";
@@ -157,7 +152,7 @@ public:
 
 
 
-   static vector<Admin> get_all_admin() {
+   static void get_all_admin() {
 
        ifstream file("admin.txt", ios::in);
        if (!file) {
@@ -168,25 +163,12 @@ public:
        string line;
        while (getline(file, line)) {
 
-           stringstream strs(line);
-           string id, salary, name, password;
-
-           getline(strs, name, '|');
-           getline(strs, id, '|');
-           getline(strs, salary, '|');
-           getline(strs, password, '\n');
-
-
-           int temp_id = stoi(id);
-           int temp_salary = stod(salary);
-
-           Admin admin(temp_salary, temp_id, name, password);
-           admins.push_back(admin);
+           cout << line << endl;
 
        }
 
        file.close();
-       return admins;
+     
 
    }
 

@@ -7,34 +7,24 @@ using namespace std;
 #include"Admin.h"
 #include"FileManger.h"
 
-template<typename ty>
-void displayFiles(vector<ty>&item) {
-    for (auto x : item) {
-        cout << x;
-    }
 
-}
+
+
 int main() {
 
-  Client c;
-    cin>>c;
-    FileManger::add_Client(c);
+  //Client c;
+  //  cin>>c;
+  //  FileManger::add_Client(c);
+  //  FileManger::get_all_clients();
 
 
-
-
-    vector <Client>clients = FileManger::get_all_clients();
-
-    for (Client x : clients) {
-        cout << x << endl;
-    }
    
-   Admin a;
+ /*  Admin a;
     cin >> a;
-    FileManger::add_admin(a);
-    vector<Admin>admins = FileManger::get_all_admin();
- 
-    displayFiles(admins);
+    FileManger::add_admin(a);*/
+    FileManger::get_all_admin();
+
+  
 
 }
 
