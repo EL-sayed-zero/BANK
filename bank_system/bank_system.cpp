@@ -25,10 +25,11 @@ int main() {
     FileManger::add_admin(a);*/
     //FileManger::get_all_admin();
 
-    Employee e;
-    cin >> e;
+    //Employee e;
+    //cin >> e;
     FileManger f;
-    f.add_Employee(e);
+   // f.add_Employee(e);
+    f.remove_all_employee();
 
    
     //Client c= ParserREad::parse_to_client("rageh|1|5555|123456789");
