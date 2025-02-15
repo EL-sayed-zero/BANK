@@ -17,7 +17,7 @@ public:
         fstream file("Employee.txt");
         if (!file.good()) {
             ofstream employeefile("Employee.txt");
-            employeefile << person.getId() << " " << person.getName() << " " << person.getPassword() << endl;
+            employeefile << person.getId() << "" << person.getName() << "" << person.getPassword() << endl;
             employeefile.close();
             return;
         }

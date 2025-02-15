@@ -35,9 +35,8 @@ public:
         ifstream file("client.txtt", ios::in);
         if (!file) {
             cout << " can not find file";
-            return;
+            exit(0);
         }
-        string line;
         Client client;
         int id;
         double balance;

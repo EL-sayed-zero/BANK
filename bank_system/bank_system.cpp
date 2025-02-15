@@ -6,6 +6,7 @@ using namespace std;
 #include "Employee.h"
 #include"Admin.h"
 #include"FileManger.h"
+#include"ParserRead.h"
 
 
 
@@ -22,8 +23,11 @@ int main() {
  /*  Admin a;
     cin >> a;
     FileManger::add_admin(a);*/
-    FileManger::get_all_admin();
+    //FileManger::get_all_admin();
 
+
+
+    cout << ParserREad::parse_to_client();
   
 
 }
