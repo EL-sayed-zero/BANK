@@ -39,16 +39,17 @@ public:
         }
         string line;
         Client client;
+        int id;
+        double balance;
+        string name, password;
+
 
         while (getline(file, line)) {
 
 
 
             vector<string>part = split(line);
-            int id;
-            double balance;
-            string name, password;
-
+        
             name = part[0];
             id = stoi(part[1]);
             balance = stod(part[2]);
