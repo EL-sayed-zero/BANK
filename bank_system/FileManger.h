@@ -51,6 +51,7 @@ public:
                cout << line << endl;
            }
         
+           file.close();
    }
 
 
@@ -159,7 +160,7 @@ public:
            cout << " can not find file";
            exit(0);
        }
-       vector<Admin>admins;
+    
        string line;
        while (getline(file, line)) {
 
