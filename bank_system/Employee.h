@@ -6,6 +6,10 @@ using namespace std;
 #include "Person.h"
 #include"Validation.h"
 #include<utility>
+#include"Client.h"
+#include"FileManger.h"
+
+
 
 class Employee :
     public Person
@@ -93,6 +97,79 @@ public:
 
    
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   void add_client(Client& client)
+   {
+       FileManger f;
+       f.add_Client(client);
+   }
 
 
 };
