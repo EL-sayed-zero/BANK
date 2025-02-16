@@ -29,7 +29,7 @@ int main() {
     //cin >> e;
     FileManger f;
    // f.add_Employee(e);
-    f.remove_all_employee();
+  
 
    
     //Client c= ParserREad::parse_to_client("rageh|1|5555|123456789");
