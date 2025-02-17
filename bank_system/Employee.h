@@ -92,7 +92,10 @@ public:
 
 
    
-
+   void add_client(Client& client) {
+       FileManger f;
+       f.add_Client(client);
+   }
 
 
 };
