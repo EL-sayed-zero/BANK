@@ -7,7 +7,7 @@
 class FilesHelper
 {
 
-
+    
 	
 
 
@@ -62,7 +62,7 @@ public:
 
 	}
 	static void saveClient(Client client) {
-		ofstream file("clint.txt", ios::app);
+		ofstream file("client.txt", ios::app);
 		if (!file) {
 			cout << "+----------------+\n|";
 	
@@ -71,7 +71,7 @@ public:
 			cout << "|\n+----------------+\n";
 			return;
 		}
-		saveLast("clientLastId.txt", client.getId());
+		saveLast("lastClient.txt", client.getId());
 		file << client.getName() << "|" << client.getId() << "|" << client.getBalance() << "|" << client.getPassword() << endl;
 		file.close();
 		cout << "+---------------------------+\n|";
@@ -87,7 +87,7 @@ public:
 			cout << "|\n+----------------+\n";
 			return;
 		}
-		saveLast(fileName, employee.getId()); 
+		saveLast(lastfile, employee.getId()); 
 		file << employee.getName() << "|" << employee.getId() << "|" << employee.getSalary() << "|" << employee.getPassword() << endl;
 		file.close();
 		cout << "+-----------------------------+\n|";
@@ -146,7 +146,7 @@ public:
 
 	}
 
-	static void getAmins() { //out
+	static void getAdmins() { //out
 		ifstream file("Admin.txt", ios::in);
 		if (!file) {
 			cout << "+----------------+\n|";
@@ -172,11 +172,11 @@ public:
 		deleteFile(fileName);
 		
 		deleteFile(lastfileid);
-		cout << "+-----------------------------+\n|";
+		cout << "+-------------------------------------------------------+\n|";
 
 		cout << fileName << " and "<< lastfileid << "  successfully deleted  ";
 
-		cout << "|\n+-----------------------------+\n";
+		cout << "|\n+-----------------------------------------------------+\n";
 
 	}
 		

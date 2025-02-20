@@ -19,16 +19,16 @@ istream& operator>>(istream& in, Admin& admin)
     double temp_salary;
     string temp_pw, temp_name;
 
-    cout << "enter id " << endl;
+    cout << "enter Admin id " << endl;
     in >> temp_id;
     admin.setID(temp_id);
-    cout << "enter name " << endl;
+    cout << "enter Admin name " << endl;
     in >> temp_name;
     admin.setName(temp_name);
-    cout << "enter salary " << endl;
+    cout << "enter Admin salary " << endl;
     in >> temp_salary;
     admin.setSalary(temp_salary);
-    cout << "enter password " << endl;
+    cout << "enter Admin password " << endl;
     in >> temp_pw;
     admin.setPW(temp_pw);
 
@@ -39,10 +39,10 @@ istream& operator>>(istream& in, Admin& admin)
 ostream& operator<<(ostream& out, Admin& admin)
 {
 
-    out << "Name : " << admin.getName() << endl;
-    out << "id : " << admin.getId() << endl;
-    out << "salary :" << admin.getSalary() << endl;
-    out << "password :" << admin.getPassword() << endl;
+    out << "Admin Name : " << admin.getName() << endl;
+    out << "Admin id : " << admin.getId() << endl;
+    out << "Admin salary :" << admin.getSalary() << endl;
+    out << "Admin password :" << admin.getPassword() << endl;
     out << "#################################\n";
     return out;
 }

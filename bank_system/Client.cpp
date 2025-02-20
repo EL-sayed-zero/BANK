@@ -96,16 +96,16 @@ istream& operator>>(istream& in, Client& client)
     int temp_id;
     double temp_balnce;
     string temp_pw, temp_name;
-    cout << "enter balance " << endl;
+    cout << "enter Client balance : " << endl;
     in >> temp_balnce;
     client.setBalance(temp_balnce);
-    cout << "enter id " << endl;
+    cout << "enter Client id :  " << endl;
     in >> temp_id;
     client.setID(temp_id);
-    cout << "enter name " << endl;
+    cout << "enter Client name : " << endl;
     in >> temp_name;
     client.setName(temp_name);
-    cout << "enter password " << endl;
+    cout << "enter Client password : " << endl;
     in >> temp_pw;
     client.setPW(temp_pw);
 
@@ -116,10 +116,10 @@ istream& operator>>(istream& in, Client& client)
 
 ostream& operator<<(ostream& out, Client& client)
 {
-    cout << "id : " << client.getId() << endl;
-    cout << "name :" << client.getName() << endl;
-    cout << "balance : " << client.getBalance() << endl;
-    cout << "password : " << client.getPassword() << endl;
+    cout << "Client id : " << client.getId() << endl;
+    cout << "Client name :" << client.getName() << endl;
+    cout << "Client balance : " << client.getBalance() << endl;
+    cout << "Client password : " << client.getPassword() << endl;
     out << "#################################\n";
 
     return out;
