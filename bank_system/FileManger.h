@@ -2,6 +2,7 @@
 #include "DataSourceInterface.h"
 #include<fstream>
 #include <sstream>
+#include"FilesHelper.h"
 
 
 class FileManger :

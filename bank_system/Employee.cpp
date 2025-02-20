@@ -1,4 +1,5 @@
 #include "Employee.h"
+#include"FileManger.h"
 
 
 Employee::Employee() {
@@ -37,6 +38,11 @@ void Employee::display()
     cout << "############################\n";
 }
 
+void addClient(Client& client) {
+
+    FileManger f;
+    f.add_Client(client);
+ }
 
 istream& operator>>(istream& in, Employee& employee)
 {
