@@ -1,13 +1,37 @@
 #pragma once
 
-#include< windows.h >
-#include <fstream>
+
+#include<fstream>
 #include "ParserRead.h"
 
 class FilesHelper
 {
 
-	static void saveLast(string fileName, int id) {
+
+	
+
+
+private:
+
+	static void deleteFile(string fileName ) {
+
+
+		ofstream file(fileName, ios::trunc);
+	
+		if (!file){
+			cout << "file not found to delete \n";
+			return;
+		}
+		file.close();
+		
+	}
+	
+
+
+public:
+
+
+	static void saveLast(string fileName, int id) { //employee or Admin 
 		ofstream file(fileName);
 		if (!file) {
 			cout << "+----------------+\n|";
@@ -55,15 +79,16 @@ public:
 		cout << "|\n+---------------------------+\n";
 
 	}
-	static void saveEmployee(Employee employee) {
-		ofstream file("Employee.txt", ios::app);
+	static void saveEmployee(Employee employee ,string fileName ,string lastfile) { 
+		ofstream file(fileName, ios::app);
 		if (!file) {
 			cout << "+----------------+\n|";
 			cout << " file not found ";
 			cout << "|\n+----------------+\n";
+			return;
 		}
-		saveLast("employeeLastId.txt", employee.getId()); // save last id 
-		file << employee.getId() << "|" << employee.getName() << "|" << employee.getSalary() << "|" << employee.getPassword() << endl;
+		saveLast(fileName, employee.getId()); 
+		file << employee.getName() << "|" << employee.getId() << "|" << employee.getSalary() << "|" << employee.getPassword() << endl;
 		file.close();
 		cout << "+-----------------------------+\n|";
 	
@@ -82,51 +107,46 @@ public:
 			return;
 		}
 		string line;
-		while (getline(file, line)) {
-			for (int i = 0; i < line.size(); i++)
-			{
-				if (line[i] == '|') {
-					cout << " ";
-				}
-				else {
-					cout << line[i];
-				}
 
-			}
-			cout << endl;
+		while (getline(file, line)) {
+			Client client;
+			client=ParserREad::parse_to_client(line);
+			cout << client;
+		
 		}
+
+
+
 	}
 
-	static void getEmployees() {
+	
+	
+
+	static void getEmployees() { 
 
 		ifstream file("Employee.txt", ios::in);
 		if (!file) {
 			cout << "+----------------+\n|";
-	
+
 			cout << " file not found ";
-	
+
 			cout << "|\n+----------------+\n";
 			return;
 		}
 		string line;
 		while (getline(file, line)) {
-			for (int i = 0; i < line.size(); i++)
-			{
-				if (line[i] == '|') {
-					cout << " ";
-				}
-				else {
-					cout << line[i];
-				}
-
-			}
-			cout << endl;
+			
+			Employee emp;
+			emp=ParserREad::parse_to_Employee(line);
+			cout << emp;
 		}
+	
 
+	
 
 	}
 
-	static void getAmins() {
+	static void getAmins() { //out
 		ifstream file("Admin.txt", ios::in);
 		if (!file) {
 			cout << "+----------------+\n|";
@@ -137,21 +157,29 @@ public:
 			return;
 		}
 		string line;
+		Admin admin;
 		while (getline(file, line)) {
-			for (int i = 0; i < line.size(); i++)
-			{
-				if (line[i] == '|') {
-					cout << " ";
-				}
-				else {
-					cout << line[i];
-				}
-
-			}
-			cout << endl;
+			
+			
+			admin=ParserREad::parse_to_admin(line);
+			cout << admin;
+			
 		}
+		
 	}
+	static void clearFile(string fileName, string lastfileid) {
+		
+		deleteFile(fileName);
+		
+		deleteFile(lastfileid);
+		cout << "+-----------------------------+\n|";
 
+		cout << fileName << " and "<< lastfileid << "  successfully deleted  ";
 
+		cout << "|\n+-----------------------------+\n";
+
+	}
+		
+	
 };
 

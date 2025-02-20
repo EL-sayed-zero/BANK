@@ -27,7 +27,7 @@ int main() {
 
     //Employee e;
     //cin >> e;
-    FileManger f;
+  
    // f.add_Employee(e);
   
 

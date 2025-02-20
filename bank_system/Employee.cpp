@@ -34,7 +34,7 @@ void Employee::display()
 {
     Person::display();
     cout << salary << endl;
-    cout << "##################\n";
+    cout << "############################\n";
 }
 
 

@@ -24,7 +24,8 @@ Client ParserREad::parse_to_client(string line)
     double  balance = stod(part[2]);
     string  password = part[3];
 
-    return Client(balance, id, name, password);
+    Client client(balance, id, name, password);
+    return client;
 
 }
 
@@ -42,7 +43,8 @@ Admin ParserREad::parse_to_admin(string line)
     double  salary = stod(part[2]);
     string  password = part[3];
 
-    return Admin(salary, id, name, password);
+     Admin admin(salary, id, name, password);
+     return admin;
 
 }
 
@@ -57,7 +59,7 @@ Employee ParserREad::parse_to_Employee(string line)
     int id = stoi(part[1]);
     double  balance = stod(part[2]);
     string  password = part[3];
-
-    return Employee(balance, id, name, password);
+    Employee employee(balance,id,name,password);
+    return employee;
 }
 

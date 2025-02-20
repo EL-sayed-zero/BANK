@@ -21,18 +21,11 @@ void FileManger::add_Employee(Employee person)
     file << person.getPassword() << "\n";
     file.close();
 }
-
-void FileManger::remove_all_employee()
-{
-
-    fstream check_file("Employee.txt");
-    if (!check_file) {
-        return;
-    }
-    check_file.close();
-    ofstream file("Employee.txt", ios::trunc);
-    file.close();
-}
+//
+//void FileManger::remove_all_employee()
+//{
+//
+//}
 
 
 
