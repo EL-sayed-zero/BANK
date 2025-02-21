@@ -88,6 +88,7 @@ Client *Employee::searchClient(int id) {
 void Employee::edit_client(int id, string name, string password, double balance) {
 
     int choice;
+    cout << "enter id "<<endl;
     cin >> choice;
     Client* client = searchClient(choice);
 

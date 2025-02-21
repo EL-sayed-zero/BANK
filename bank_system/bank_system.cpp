@@ -27,7 +27,7 @@ int main() {
 	//cout << *m;
 	//delete m;*/
 
-	e.edit_client(7, "bodaa", "ahnedldlokofe2234ab", 900000);
+	e.edit_client(9, "hesham", "a", 900000);
    
    
 
