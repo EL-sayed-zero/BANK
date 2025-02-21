@@ -77,7 +77,6 @@ Client *Employee::searchClient(int id) {
         }
     file.close();
    
-        cout << "id not found";
         return nullptr;
         
    
@@ -86,30 +85,52 @@ Client *Employee::searchClient(int id) {
 
 }
 
-void edit_client(int id, string name, string password, double balance) {
-    fstream file("client.txt", ios::in);
-    if (!file) {
-        cout << "may br something wrong in client file !\n";
+void Employee::edit_client(int id, string name, string password, double balance) {
+
+    int choice;
+    cin >> choice;
+    Client* client = searchClient(choice);
+
+    if (client == nullptr) {
+        cout << "id not found";
         return;
     }
+      
+    //edit client attributes
+    client->setID(id);
+    client->setName(name); 
+    client->setBalance(balance);
+    client->setPW(password);
+    ifstream Rfile("client.txt", ios::in);
+    ofstream ofile("temp.txt");
     string line;
-    vector<Client>clients;
-    while (getline(file, line)) {
-        clients.push_back(ParserREad::parse_to_client(line));
-    }
-    file.close();
-    FileManger f;
-    f.remove_clients();
-    for (int i = clients.size() - 1; i > -1; i--) {
-        if (clients[i].getId() == id) {
-            clients[i].setName(name);
-            clients[i].setBalance(balance);
-            clients[i].setPW(password);
-            f.add_Client(clients[i]);
+    while (getline(Rfile, line)) {
+
+        Client old_client = ParserREad::parse_to_client(line);
+        if (choice == old_client.getId()) {
+            ofile<<client->getName() << "|" << client->getId() << "|" << client->getBalance() << "|" << client->getPassword() << endl;
+
         }
-        f.add_Client(clients[i]);
+        else {
+            ofile << line << endl;
+        }
+       
 
     }
+   
+
+
+    Rfile.close();
+    ofile.close();
+
+    remove("client.txt");
+    rename("temp.txt", "client.txt");
+
+    cout << "Client updated successfully \n";
+
+    delete client; 
+
+   
 }
 
 

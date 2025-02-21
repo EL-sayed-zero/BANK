@@ -13,7 +13,7 @@ using namespace std;
 
 int main() {
 
-	//FileManger f;
+	FileManger f;
 	//Client c,b,a;
 	//cin >> c>>b>>a;
 
@@ -23,11 +23,11 @@ int main() {
 	//f.add_Client(a);
 
 	Employee e;
-	Client *m=e.searchClient(2);
-	cout << *m;
-	delete m;
+	///*Client *m=e.searchClient(2);
+	//cout << *m;
+	//delete m;*/
 
-			
+	e.edit_client(7, "bodaa", "ahnedldlokofe2234ab", 900000);
    
    
 
