@@ -86,10 +86,31 @@ Client *Employee::searchClient(int id) {
 
 }
 
-void Employee::clientEdit(int id, string name, double balance, string password)
-{
-}
+void edit_client(int id, string name, string password, double balance) {
+    fstream file("client.txt", ios::in);
+    if (!file) {
+        cout << "may br something wrong in client file !\n";
+        return;
+    }
+    string line;
+    vector<Client>clients;
+    while (getline(file, line)) {
+        clients.push_back(ParserREad::parse_to_client(line));
+    }
+    file.close();
+    FileManger f;
+    f.remove_clients();
+    for (int i = clients.size() - 1; i > -1; i--) {
+        if (clients[i].getId() == id) {
+            clients[i].setName(name);
+            clients[i].setBalance(balance);
+            clients[i].setPW(password);
+            f.add_Client(clients[i]);
+        }
+        f.add_Client(clients[i]);
 
+    }
+}
 
 
 
