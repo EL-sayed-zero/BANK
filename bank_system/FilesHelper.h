@@ -9,7 +9,7 @@ class FilesHelper
 
     
 	
-
+	
 
 private:
 
@@ -146,7 +146,7 @@ public:
 
 	}
 
-	static void getAdmins() { //out
+	static void getAdmins() {
 		ifstream file("Admin.txt", ios::in);
 		if (!file) {
 			cout << "+----------------+\n|";

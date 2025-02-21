@@ -38,16 +38,61 @@ void Employee::display()
     cout << "############################\n";
 }
 
-void addClient(Client& client) {
-
+void Employee::addClient(Client& client)
+{
     FileManger f;
     f.add_Client(client);
- }
+}
 
-void clients_list() {
+void Employee::clients_list()
+{
     FileManger f;
     f.get_all_clients();
 }
+
+
+
+
+
+Client *Employee::searchClient(int id) {
+    ifstream file("client.txt", ios::in);
+
+
+    if (!file) {
+        cout << "Error opening file!\n";
+        return nullptr;
+    }
+    string line;
+   
+
+    while (getline(file, line)) {
+       
+       Client client = ParserREad::parse_to_client(line);
+
+        if (id == client.getId()) {
+            return new Client(client.getBalance(), client.getId(), client.getName(),client.getPassword());
+         
+        }
+       
+        }
+    file.close();
+   
+        cout << "id not found";
+        return nullptr;
+        
+   
+    
+  
+
+}
+
+void Employee::clientEdit(int id, string name, double balance, string password)
+{
+}
+
+
+
+
 
 istream& operator>>(istream& in, Employee& employee)
 {

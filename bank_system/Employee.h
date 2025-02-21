@@ -33,6 +33,14 @@ public:
 
     virtual void display();
 
+    void addClient(Client& client);
+
+    void clients_list();
+
+    Client* searchClient(int id);
+
+   
+
 
 
     friend istream& operator >>(istream& in, Employee& employee);
