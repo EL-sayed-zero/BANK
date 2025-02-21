@@ -44,6 +44,11 @@ void addClient(Client& client) {
     f.add_Client(client);
  }
 
+void clients_list() {
+    FileManger f;
+    f.get_all_clients();
+}
+
 istream& operator>>(istream& in, Employee& employee)
 {
     int temp_id;
