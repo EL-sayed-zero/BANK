@@ -24,10 +24,13 @@ public:
     void display();
 
 
+    void addEmployee(Employee& employee);
 
+    void employee_list();
 
+    Employee* searchemployee(int id);
 
-
+    void edit_employee(int id, string name, string password, double balance);
 
     friend istream& operator >>(istream& in, Admin& admin);
 
