@@ -25,15 +25,7 @@ public:
 
     // Client methods
 
-    void addClient(Client& client);
-
-    void clients_list();
-
-    Client* searchClient(int id);
-
-    void edit_client(int id, string name, string password, double balance);
-
-
+   
     void addEmployee(Employee& employee);
 
     void employee_list();

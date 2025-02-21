@@ -109,30 +109,6 @@ void Admin::edit_employee(int id, string name, string password, double salary) {
 
 
 
-
-
-
-
-void Admin::addClient(Client& client)
-{
-    Employee::addClient(client);
-}
-
-void Admin::clients_list()
-{
-    Employee::clients_list();
-}
-
-Client* Admin::searchClient(int id)
-{
-    Employee::searchClient(id);
-}
-
-void Admin::edit_client(int id, string name, string password, double balance)
-{
-    Employee::edit_client(id, name, password, balance);
-}
-
 istream& operator>>(istream& in, Admin& admin)
 {
 
