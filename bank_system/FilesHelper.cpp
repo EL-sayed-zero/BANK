@@ -39,7 +39,7 @@ int FilesHelper::getLast(string fileName)
 		return 0;
 	}
 	string line;
-	while (getline(file, line)) {}
+	while (getline(file, line))  
 	return stoi(line);
 
 }

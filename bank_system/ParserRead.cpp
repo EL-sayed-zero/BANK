@@ -29,7 +29,7 @@ Client ParserREad::parse_to_client(string line)
 
 }
 
-Admin ParserREad::parse_to_admin(string line)
+Admin ParserREad::parse_to_admin(string line) 
 {
 
 

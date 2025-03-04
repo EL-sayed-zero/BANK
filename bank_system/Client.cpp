@@ -61,7 +61,7 @@ void Client::withdrow(double amount)
 
 }
 
-void Client::transfare(double amount, Client& client)
+void Client::transfare(double amount, Client& client) 
 {
 
     if (balance < amount) {

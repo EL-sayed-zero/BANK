@@ -14,8 +14,8 @@ using namespace std;
 int main() {
 
 	FileManger f;
-	//Client c,b,a;
-	//cin >> c>>b>>a;
+	Client c,b,a;
+	cin >> c;
 
 	//f.add_Client(c);
 
@@ -27,9 +27,12 @@ int main() {
 	//cout << *m;
 	//delete m;*/
 
-	e.searchClient(3)->display();
-   
-   
+	//e.searchClient(3)->display();
+ //  
+	//Admin a;
+	//Client *c = a.searchClient(2);
+	//cout << *c;
+	//delete c;
 
 
 
