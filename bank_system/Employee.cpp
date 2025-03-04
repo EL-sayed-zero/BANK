@@ -87,10 +87,10 @@ Client *Employee::searchClient(int id) {
 
 void Employee::edit_client(int id, string name, string password, double balance) {
 
-    int choice;
-    cout << "enter id "<<endl;
-    cin >> choice;
-    Client* client = searchClient(choice);
+   // int choice;
+   // cout << "enter id "<<endl;
+   // cin >> choice;
+    Client* client = searchClient(id);
 
     if (client == nullptr) {
         cout << "id not found";
@@ -108,7 +108,7 @@ void Employee::edit_client(int id, string name, string password, double balance)
     while (getline(Rfile, line)) {
 
         Client old_client = ParserREad::parse_to_client(line);
-        if (choice == old_client.getId()) {
+        if (id == old_client.getId()) {
             ofile<<client->getName() << "|" << client->getId() << "|" << client->getBalance() << "|" << client->getPassword() << endl;
 
         }
