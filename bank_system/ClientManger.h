@@ -4,7 +4,7 @@
 class ClientManger
 {
 
-private:
+public:
 
     static void printClientMenu() {
         cout << "\n===== Client Menu =====" << endl;
@@ -57,7 +57,7 @@ private:
 
 
     }
-public:
+
     static bool clientOptions(Client* client) {
         int choice;
         double amount;
