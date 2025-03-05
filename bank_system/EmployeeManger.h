@@ -59,18 +59,24 @@ public:
 	    cout << "Enter Client ID : ";
 	    cin >> id;
 	    Client* client = employee->searchClient(id); 
+
+	    if (client == nullptr) {
+		   cout << "+---------------------------+\n";
+		   cout << "| No't Found This Employee  | \n";
+		   cout << "+---------------------------+\n";
+	    }
 	    int choice;
 	    string newName, newPassword;
 	    double newBalance;
 	    OptionsEditClient(); 
 	    cin >> choice;
-	    switch (id) {
+	    switch (choice) {
 	    case 1:
 		   cout << "Enter The New Name : ";
 		   cin >> newName;
 		   client->setName(newName);
 		   cout << "+-----------------------------+\n";
-		   cout << "| Name changed successfully |\n";
+		   cout << "| Name changed successfully   |\n";
 		   cout << "+-----------------------------+\n";
 		   break;
 	    case 2:
@@ -78,7 +84,7 @@ public:
 		   cin >> newPassword;
 		   client->setPW(newPassword);
 		   cout << "+---------------------------------+\n";
-		   cout << "| Password changed successfully |\n";
+		   cout << "| Password changed successfully   |\n";
 		   cout << "+---------------------------------+\n";
 		   break;
 	    case 3:
@@ -86,14 +92,15 @@ public:
 		   cin >> newBalance;
 		   client->setBalance(newBalance);
 		   cout << "+--------------------------------+\n";
-		   cout << "| Balance changed successfully |\n";
+		   cout << "| Balance changed successfully   |\n";
 		   cout << "+--------------------------------+\n";
 		   break;
 	    case 4:
+
 		   return;
 	    default:
 		   cout << "+----------------------+\n";
-		   cout << "| Incorrect Enter !! |\n";
+		   cout << "| Incorrect Enter !!   |\n";
 		   cout << "+----------------------+\n";
 
 	    }
@@ -106,14 +113,14 @@ public:
 	    Admin admin;
 	    if (admin.searchemployee(id)->getId() == id && admin.searchemployee(id)->getPassword() == password) {
 		   cout << "+---------------------+\n";
-		   cout << "| You are logged in |\n";
+		   cout << "| You are logged in   |\n";
 		   cout << "+---------------------+\n";
 
 
 		   return admin.searchemployee(id);
 	    }
 	    cout << "+-------------------------------+\n";
-	    cout << "| This Employee No't Found !! |\n";
+	    cout << "|  This Employee No't Found !!  |\n";
 	    cout << "+-------------------------------+\n";
 
 	    return nullptr;
@@ -139,10 +146,15 @@ public:
 
 			  return true; 
 		   case 4:
+
+			  editClientInfo(employee);
+			  return true;
+		   case 5:
+
 			  return false;
 		   default:
 			  cout << "+----------------------+\n";
-			  cout << "| Incorrect Enter !! | \n";
+			  cout << "| Incorrect Enter !!   | \n";
 			  cout << "+----------------------+\n";
 			  
 		   }

@@ -3,6 +3,8 @@
 
 class AdminManger
 {
+
+public:
 	static void PrintEmployeemenu() {
 		cout << "1-add client\n";
 		cout << "2-clients list\n";
@@ -12,13 +14,12 @@ class AdminManger
 		cout << "6-add employee\n";
 		cout << "7-search employee\n";
 		cout << "8-logout\nenter your choise:";
-		//dddddddddddddddddddddddddddddddd
 
 
 	}
-	Admin* login(int id, string password) {
+	Admin* login(int id, string password) {    
 		Admin admin;
-		if (admin.searchemployee(id)->getId() == id && admin.searchemployee(id)->getPassword() == password) {
+		if (admin.searchemployee(id)->getId() == id && admin.searchemployee(id)->getPassword() == password) { 
 			cout << "welcome back\n";
 		}
 		else {
@@ -26,38 +27,7 @@ class AdminManger
 		}
 	}
 
-	/*static bool AdminOptions(Employee* employee) {
-		int choice;
-		PrintEmployeemenu();
-		cin >> choice;
-		while (true) {
-			switch (choice) {
-
-			case 1:
-				EmployeeManger::newclient(employee);
-
-				return true;
-			case 2:
-				listallclient(employee);
-
-				return true;
-			case 3:
-				searchforclient(employee);
-
-				return true;
-			case 5:
-				return false;
-			default:
-				cout << "+----------------------+\n";
-				cout << "| Incorrect Enter !! | \n";
-				cout << "+----------------------+\n";
-
-			}
-
-
-
-		}
-	}*/
+	
 
 
 
