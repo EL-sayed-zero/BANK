@@ -20,9 +20,11 @@ class AdminManger
 		Admin admin;
 		if (admin.searchemployee(id)->getId() == id && admin.searchemployee(id)->getPassword() == password) {
 			cout << "welcome back\n";
+			return admin.searchemployee(id);
 		}
 		else {
 			cout << "not found\n";
+			return nullptr;
 		}
 	}
 
