@@ -128,6 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Admin.cpp" />
+    <ClCompile Include="AdminManger.cpp" />
     <ClCompile Include="bank_system.cpp" />
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="ClientManger.cpp" />
@@ -142,6 +143,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Admin.h" />
+    <ClInclude Include="AdminManger.h" />
     <ClInclude Include="Client.h" />
     <ClInclude Include="ClientManger.h" />
     <ClInclude Include="DataSourceInterface.h" />
