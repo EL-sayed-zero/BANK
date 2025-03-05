@@ -48,10 +48,9 @@ class AdminManger
 
 	}
 
-	static bool AdminOptions(Employee* employee) {
+	static bool AdminOptions(Admin* admin) {
 		int choice;
-		Employee newemployee;
-		int id;
+		Employee newemployee,*employee;
 		PrintEmployeemenu();
 		cin >> choice;
 			switch (choice) {
@@ -76,9 +75,7 @@ class AdminManger
 				add_employee(newemployee);
 				return true;
 			case 7:
-
-				cin >> id;
-				search_employee(employee);
+				search_employee(admin);
 				return true;
 			default:
 				cout << "+----------------------+\n";
