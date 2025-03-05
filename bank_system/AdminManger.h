@@ -78,6 +78,43 @@ class AdminManger
 
 
 	//
+	void edit_employee(int id) {
+		Admin admin;
+		if (admin.searchemployee(id)) {
+			int choice;
+			cout"1-change name\n";
+			cout << "2-change password\n";
+			cout << "3-change salary\n";
+			cout<<"enter your choice:"
+			cin >> choice;
+			switch (choice)
+			{
+			case 1:
+				cout << "enter the new name:";
+				string name;
+				cin >> name;
+				admin.searchemployee(id).setname(name);
+				break;
+			case 2:
+				cout << "enter the new password:";
+				string password;
+				cin >> password;
+				admin.searchemployee(id)->setPW(password);
+				break;
+			case 3:
+				cout << "enter the new salary:";
+				double salary;
+				cin >> salary;
+				admin.searchemployee(id)->setSalary(salary)
+					break;
+			}
+		}
+		else {
+			cout << "not found";
+			return;
+		}
+		admin.edit_employee(admin.searchemployee(id)->getId(), admin.searchemployee(id)->getName(), admin.searchemployee(id)->getPassword(), admin.searchemployee(id)->getSalary())
+	}
 
 
 
