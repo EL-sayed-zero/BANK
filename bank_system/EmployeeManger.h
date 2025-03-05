@@ -59,12 +59,18 @@ public:
 	    cout << "Enter Client ID : ";
 	    cin >> id;
 	    Client* client = employee->searchClient(id); 
+	    if (client == nullptr) {
+		   cout << "+------------------------+\n";
+		   cout << "| No't Found This Client | \n";
+		   cout << "+------------------------+\n";
+
+	    }
 	    int choice;
 	    string newName, newPassword;
 	    double newBalance;
 	    OptionsEditClient(); 
 	    cin >> choice;
-	    switch (id) {
+	    switch (choice) {
 	    case 1:
 		   cout << "Enter The New Name : ";
 		   cin >> newName;
