@@ -4,12 +4,16 @@
 class AdminManger
 {
 	static void PrintEmployeemenu() {
-		cout << "1-add client\n";
-		cout << "2-clients list\n";
-		cout << "3-search client\n";
-		cout << "4-edit client\n";
-		cout << "5-logout\nenter your choise:";
-		//try
+	cout << "1-add client\n";
+	cout << "2-clients list\n";
+	cout << "3-search client\n";
+	cout << "4-edit client\n";
+	cout << "5-Employee list\n";
+	cout << "6-add employee\n";
+	cout << "7-search employee\n";
+	cout << "8-logout\nenter your choise:";
+		
+
 	}
 	Admin* login(int id, string password) {
 		Admin admin;
@@ -53,6 +57,27 @@ class AdminManger
 
 		}
 	}
+
+
+
+	void employee_list() {
+		Admin admin;
+		admin.employee_list();
+	}
+
+	void add_employee(Employee employee) {
+		Admin admin;
+		admin.addEmployee(employee);
+	}
+
+	Employee search_employee(int id) {
+		Admin admin;
+		return admin.searchemployee(id);
+	}
+
+
+	//
+
 
 
 };
