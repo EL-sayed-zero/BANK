@@ -12,7 +12,7 @@ class AdminManger
 	}
 	Admin* login(int id, string password) {
 		Admin admin;
-		if (admin.searchemployee(id)->getId() == id && admin.searchemployee()->getPassword() == password) {
+		if (admin.searchemployee(id)->getId() == id && admin.searchemployee(id)->getPassword() == password) {
 			cout << "welcome back\n";
 		}
 		else {
@@ -20,7 +20,7 @@ class AdminManger
 		}
 	}
 
-	static bool AminOptions(Employee* employee) {
+	static bool AdminOptions(Employee* employee) {
 		int choice;
 		PrintEmployeemenu();
 		cin >> choice;
