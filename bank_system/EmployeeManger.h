@@ -62,7 +62,7 @@ public:
 	    int choice;
 	    string newName, newPassword;
 	    double newBalance;
-	    OptionsEditClient();
+	    OptionsEditClient(); 
 	    cin >> choice;
 	    switch (id) {
 	    case 1:

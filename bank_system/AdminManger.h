@@ -9,6 +9,7 @@ class AdminManger
 		cout << "3-search client\n";
 		cout << "4-edit client\n";
 		cout << "5-logout\nenter your choise:";
+		//try
 	}
 	Admin* login(int id, string password) {
 		Admin admin;
