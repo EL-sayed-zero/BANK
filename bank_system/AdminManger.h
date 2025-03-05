@@ -1,5 +1,5 @@
 #pragma once
-#include"FileManger.h"
+#include"EmployeeManger.h"
 
 class AdminManger
 {
@@ -26,59 +26,65 @@ class AdminManger
 		}
 	}
 
-	/*static bool AdminOptions(Employee* employee) {
+	static bool AdminOptions(Employee* employee) {
 		int choice;
+		Employee newemployee;
 		PrintEmployeemenu();
 		cin >> choice;
-		while (true) {
 			switch (choice) {
 
 			case 1:
 				EmployeeManger::newclient(employee);
-
 				return true;
 			case 2:
-				listallclient(employee);
-
+				EmployeeManger::listallclient(employee);
 				return true;
 			case 3:
-				searchforclient(employee);
-
+				EmployeeManger::searchforclient(employee);
+				return true;
+			case 4:
+				EmployeeManger::editClientInfo(employee);
 				return true;
 			case 5:
-				return false;
+				employee_list();
+				return true;
+			case 6:
+				cin >> newemployee;
+				add_employee(newemployee);
+				return true;
+			case 7:
+				int id;
+				cin >> id;
+				search_employee(id);
+				return true;
 			default:
 				cout << "+----------------------+\n";
 				cout << "| Incorrect Enter !! | \n";
 				cout << "+----------------------+\n";
 
 			}
+	}
 
 
 
-		}
-	}*/
-
-
-
-	void employee_list() {
+	static void employee_list() {
 		Admin admin;
 		admin.employee_list();
 	}
 
-	void add_employee(Employee employee) {
+	static void add_employee(Employee employee) {
 		Admin admin;
 		admin.addEmployee(employee);
 	}
 
-	Employee* search_employee(int id) {
+	static Employee* search_employee(int id) {
 		Admin admin;
 		return admin.searchemployee(id);
 	}
 
 
 	//
-	void edit_employee(int id) {
+	static void edit_employee(int id) {
 		Admin admin;
 		if (admin.searchemployee(id)) {
 			int choice;
