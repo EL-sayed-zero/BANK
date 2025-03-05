@@ -27,7 +27,7 @@ void Admin::employee_list()
 }
 
 
-
+// parent  pointer 
 Employee* Admin::searchemployee(int id) {
     ifstream file("Employee.txt", ios::in);
 

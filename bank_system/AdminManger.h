@@ -12,25 +12,46 @@ class AdminManger
 		cout << "6-add employee\n";
 		cout << "7-search employee\n";
 		cout << "8-logout\nenter your choise:";
-		//dddddddddddddddddddddddddddddddd
+		
 
 
 	}
 	Admin* login(int id, string password) {
-		Admin admin;
-		if (admin.searchemployee(id)->getId() == id && admin.searchemployee(id)->getPassword() == password) {
-			cout << "welcome back\n";
-			return admin.searchemployee(id);
-		}
-		else {
-			cout << "not found\n";
+	
+
+		ifstream file("admin.txt", ios::in);
+
+
+		if (!file) {
+			cout << "Error opening file!\n";
 			return nullptr;
 		}
+		string line;
+
+
+		while (getline(file, line)) {
+
+			Admin admin= ParserREad::parse_to_admin(line);
+
+			if (id == admin.getId() && password == admin.getPassword()) {
+				cout << "Login successful!" << endl;
+				return new Admin(admin.getSalary(), admin.getId(), admin.getName(), admin.getPassword());
+
+			}
+
+		}
+		file.close();
+		cout << "Invalid ID or Password!" << endl;
+		return nullptr;
+
+
+
 	}
 
 	static bool AdminOptions(Employee* employee) {
 		int choice;
 		Employee newemployee;
+		int id;
 		PrintEmployeemenu();
 		cin >> choice;
 			switch (choice) {
@@ -55,9 +76,9 @@ class AdminManger
 				add_employee(newemployee);
 				return true;
 			case 7:
-				int id;
+
 				cin >> id;
-				search_employee(id);
+				search_employee(employee);
 				return true;
 			default:
 				cout << "+----------------------+\n";
@@ -79,9 +100,16 @@ class AdminManger
 		admin.addEmployee(employee);
 	}
 
-	static Employee* search_employee(int id) {
-		Admin admin;
-		return admin.searchemployee(id);
+	static void search_employee(Admin *admin) {
+		int id;
+		cout << "enter the id fo search \n";
+		cin >> id;
+		if (admin->searchemployee(id) != nullptr) {
+			cout << admin->searchemployee(id);
+		}
+		else {
+			cout << "Employee not found" << endl;
+		}
 	}
 
 
