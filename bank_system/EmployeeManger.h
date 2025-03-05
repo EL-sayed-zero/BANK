@@ -55,10 +55,10 @@ public:
 
 
 	static void editClientInfo(Employee* employee) {
-	    int id;
+	    int id; 
 	    cout << "Enter Client ID : ";
 	    cin >> id;
-	    Client* client = employee->searchClient(id);
+	    Client* client = employee->searchClient(id); 
 	    int choice;
 	    string newName, newPassword;
 	    double newBalance;

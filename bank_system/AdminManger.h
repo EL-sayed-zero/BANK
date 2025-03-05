@@ -12,6 +12,7 @@ class AdminManger
 	cout << "6-add employee\n";
 	cout << "7-search employee\n";
 	cout << "8-logout\nenter your choise:";
+	//dddddddddddddddddddddddddddddddd
 		
 
 	}
