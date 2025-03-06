@@ -3,6 +3,8 @@
 
 class AdminManger
 {
+
+public:
 	static void PrintEmployeemenu() {
 		cout << "1-add client\n";
 		cout << "2-clients list\n";
@@ -16,7 +18,7 @@ class AdminManger
 
 
 	}
-	Admin* login(int id, string password) {
+	static Admin* login(int id, string password) {
 	
 
 		ifstream file("admin.txt", ios::in);
@@ -33,7 +35,7 @@ class AdminManger
 
 			Admin admin= ParserREad::parse_to_admin(line);
 
-			if (id == admin.getId() && password == admin.getPassword()) {
+			if (admin.getId() == id && admin.getPassword() == password) {
 				cout << "Login successful!" << endl;
 				return new Admin(admin.getSalary(), admin.getId(), admin.getName(), admin.getPassword());
 

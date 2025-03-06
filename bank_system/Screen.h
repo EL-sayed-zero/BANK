@@ -1,6 +1,7 @@
 #pragma once
-#include<iostream>
-using namespace std;
+#include"AdminManger.h"
+#include"ClientManger.h"
+#include"EmployeeManger.h"
 class Screen
 {
 public:
@@ -70,6 +71,40 @@ public:
 
           return choice;
       }
+
+
+      static void logout() {
+          exit(0);
+      }
+
+
+      static void loginscreen() {
+          int choise,id;
+          string password;
+          cout << "you will login as:\n";
+          cout << "1-Client\n2-Employee\n3-Admin:";
+          cin >> choise;
+          cout << "insert your id:";
+          cin >> id;
+          cout << "insert your password:";
+          cin >> password;
+          switch (choise)
+          {
+          case 1:
+              ClientManger::login(id, password);
+              break;
+          case 2:
+              EmployeeManger::login(id, password);
+              break;
+          case 3:
+              AdminManger::login(id,password);
+              break;
+          default:
+              break;
+          }
+      }
+
+
 
 
  };
