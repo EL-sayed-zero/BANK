@@ -58,16 +58,16 @@ public:
 			switch (choice) {
 
 			case 1:
-				EmployeeManger::newclient(employee);
+				EmployeeManger::newclient(&newemployee);
 				return true;
 			case 2:
-				EmployeeManger::listallclient(employee);
+				EmployeeManger::listallclient(&newemployee);
 				return true;
 			case 3:
-				EmployeeManger::searchforclient(employee);
+				EmployeeManger::searchforclient(&newemployee);
 				return true;
 			case 4:
-				EmployeeManger::editClientInfo(employee);
+				EmployeeManger::editClientInfo(&newemployee);
 				return true;
 			case 5:
 				employee_list();

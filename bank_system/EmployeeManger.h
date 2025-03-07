@@ -112,14 +112,14 @@ public:
 	    Admin admin;
 	    if (admin.searchemployee(id)->getId() == id && admin.searchemployee(id)->getPassword() == password) {
 		   cout << "+---------------------+\n";
-		   cout << "| You are logged in |\n";
+		   cout << "| You are logged in   |\n";
 		   cout << "+---------------------+\n";
 
 
 		   return admin.searchemployee(id);
 	    }
 	    cout << "+-------------------------------+\n";
-	    cout << "| This Employee No't Found !! |\n";
+	    cout << "| This Employee No't Found !!   |\n";
 	    cout << "+-------------------------------+\n";
 
 	    return nullptr;
