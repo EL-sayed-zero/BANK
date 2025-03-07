@@ -115,46 +115,67 @@ public:
 
 
       static void loginscreen() {
-          int choise,id;
           string password;
-          loginOptions();
-          cin >> choise;
-         
+          int id;
+          int choise = loginAs();
+          Client* client = nullptr;
+          Employee* employee = nullptr;
+          Admin* admin = nullptr;
           while (true) {
               switch (choise)
               {
               case 1:
-                  cout << "insert your id : ";
+                  cout << "Enter your id : ";
                   cin >> id;
-                  cout << "insert your password:";
+                  cout << "Enter your password:";
                   cin >> password;
-                  ClientManger::login(id, password);
-                  ClientManger::clientOptions(ClientManger::login(id, password));
+                   client = ClientManger::login(id, password);
+                  if (client != nullptr) {
+
+                      ClientManger::clientOptions(client);
+                  }
+                  else {
+                      cout << "Invalid login credentials!\n";
+                  }
+                 
 
                   break;
               case 2:
-                  cout << "insert your id:";
+                  cout << "Enter your id:";
                   cin >> id;
-                  cout << "insert your password:";
+                  cout << "Enter your password:";
                   cin >> password;
-                  EmployeeManger::login(id, password);
-                  EmployeeManger::employeeOpttions(EmployeeManger::login(id, password));
+                    employee=  EmployeeManger::login(id, password);
+                if (employee != nullptr) {
+                    EmployeeManger::employeeOpttions(employee);
+                }
+                else {
+                    cout << "Invalid login credentials!\n";
+                }
+                 
 
                   break;
               case 3:
-                  cout << "insert your id:";
+                  cout << "Enter your id:";
                   cin >> id;
-                  cout << "insert your password:";
+                  cout << "Enter your password:";
                   cin >> password;
-                  AdminManger::login(id, password);
-                  AdminManger::AdminOptions(AdminManger::login(id, password));
+                    admin =AdminManger::login(id, password);
+                 if (admin != nullptr) {
+                     AdminManger::AdminOptions(AdminManger::login(id, password));
+                 }
+                 else {
+                     cout << "Invalid login credentials!\n";
+                 }
+                
                   break;
               case 4:
                   printThankYou();
                   logout();
-
-                  break;
+                  return;
+                
               default:
+                  invalid(choise);
                   break;
               }
           }

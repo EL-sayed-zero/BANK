@@ -52,29 +52,29 @@ public:
 
 	static bool AdminOptions(Admin* admin) {
 		int choice;
-		Employee newemployee,*employee;
+		Employee newEmployee;
 		PrintEmployeemenu();
 		cin >> choice;
 			switch (choice) {
 
 			case 1:
-				EmployeeManger::newclient(&newemployee);
+				EmployeeManger::newclient(admin);
 				return true;
 			case 2:
-				EmployeeManger::listallclient(&newemployee);
+				EmployeeManger::listallclient(admin);
 				return true;
 			case 3:
-				EmployeeManger::searchforclient(&newemployee);
+				EmployeeManger::searchforclient(admin);
 				return true;
 			case 4:
-				EmployeeManger::editClientInfo(&newemployee);
+				EmployeeManger::editClientInfo(admin);
 				return true;
 			case 5:
 				employee_list();
 				return true;
 			case 6:
-				cin >> newemployee;
-				add_employee(newemployee);
+				cin >> newEmployee;
+				add_employee(newEmployee);
 				return true;
 			case 7:
 				search_employee(admin);
