@@ -164,7 +164,6 @@ ostream& operator<<(ostream& out, Employee& employee)
     cout << "Employee id : " << employee.getId() << endl;
     cout << "Employee name :" << employee.getName() << endl;
     cout << "Employee Salary : " << employee.getSalary() << endl;
-    cout << "Employee password : " << employee.getPassword() << endl;
     out << "#################################\n";
 
     return out;
