@@ -119,7 +119,6 @@ ostream& operator<<(ostream& out, Client& client)
     cout << "Client id : " << client.getId() << endl;
     cout << "Client name :" << client.getName() << endl;
     cout << "Client balance : " << client.getBalance() << endl;
-    cout << "Client password : " << client.getPassword() << endl;
     out << "#################################\n";
 
     return out;

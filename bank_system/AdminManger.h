@@ -110,7 +110,7 @@ public:
 		cout << "enter the id fo search \n";
 		cin >> id;
 		if (admin->searchemployee(id) != nullptr) {
-			cout << admin->searchemployee(id);
+			cout << * admin->searchemployee(id);
 		}
 		else {
 			cout << "Employee not found" << endl;

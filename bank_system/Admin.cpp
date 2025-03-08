@@ -140,7 +140,6 @@ ostream& operator<<(ostream& out, Admin& admin)
     out << "Admin Name : " << admin.getName() << endl;
     out << "Admin id : " << admin.getId() << endl;
     out << "Admin salary :" << admin.getSalary() << endl;
-    out << "Admin password :" << admin.getPassword() << endl;
     out << "#################################\n";
     return out;
 }

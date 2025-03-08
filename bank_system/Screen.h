@@ -29,7 +29,7 @@ public:
  static void bankName() {
      int y = 10;
 
-     while (y != 0) {
+     while (y != 5) {
          setConsoleColor(y);
          cout << "\t\t//$$$$$$\\   $$\\     $$\\    $$$$$$\\               $$\\    $$$$$$$\\                      $$\\       \n";
          cout << "\t\t$$  __$$\\  \\$$\\   $$  |  $$  __$$\\              \\$$\\   $$  __$$\\                     $$ |      \n";
@@ -189,7 +189,7 @@ public:
       }
 
       static void runApp() {
-          //welcome();
+          welcome();
           bankName();
           loginscreen();
 
