@@ -132,10 +132,12 @@ public:
                    client = ClientManger::login(id, password);
                   if (client != nullptr) {
 
-                      ClientManger::clientOptions(client);
+                      if (!ClientManger::clientOptions(client)) {
+                          loginscreen();
+                     }
                   }
                   else {
-                      cout << "Invalid login credentials!\n";
+                      cout << "Invalid login \n";
                   }
                  
 
@@ -147,10 +149,12 @@ public:
                   cin >> password;
                     employee=  EmployeeManger::login(id, password);
                 if (employee != nullptr) {
-                    EmployeeManger::employeeOpttions(employee);
+                    if (!EmployeeManger::employeeOpttions(employee)) {
+                        loginscreen();
+                  }
                 }
                 else {
-                    cout << "Invalid login credentials!\n";
+                    cout << "Invalid login \n";
                 }
                  
 
@@ -160,12 +164,14 @@ public:
                   cin >> id;
                   cout << "Enter your password:";
                   cin >> password;
-                    admin =AdminManger::login(id, password);
+                admin =AdminManger::login(id, password);
                  if (admin != nullptr) {
-                     AdminManger::AdminOptions(AdminManger::login(id, password));
+                     if (!AdminManger::AdminOptions(AdminManger::login(id, password))) {
+                         loginscreen();
+                   }
                  }
                  else {
-                     cout << "Invalid login credentials!\n";
+                     cout << "Invalid login \n";
                  }
                 
                   break;

@@ -108,48 +108,73 @@ public:
 	    
 	}
 	static Employee* login(int id, string password) {
-	  
-	    Admin admin;
-	    if (admin.searchemployee(id)->getId() == id && admin.searchemployee(id)->getPassword() == password) {
-		   cout << "+---------------------+\n";
-		   cout << "| You are logged in   |\n";
-		   cout << "+---------------------+\n";
+
+		ifstream file("Employee.txt", ios::in);
 
 
-		   return admin.searchemployee(id);
-	    }
-	    cout << "+-------------------------------+\n";
-	    cout << "| This Employee No't Found !!   |\n";
-	    cout << "+-------------------------------+\n";
+		if (!file) {
+			cout << "Error opening file!\n";
+			return nullptr;
+		}
+		string line;
 
-	    return nullptr;
+
+		while (getline(file, line)) {
+       Employee employee= ParserREad::parse_to_Employee(line);
+
+			if (id == employee.getId() && password == employee.getPassword()) {
+				cout << "Login successful!" << endl;
+				return new Employee(employee.getSalary(), employee.getId(), employee.getName(), employee.getPassword());
+
+			}
+
+		}
+		file.close();
+		cout << "Invalid ID or Password!" << endl;
+		return nullptr;
+
+
+
+
+
 	}
+
+	
+		
 	static bool employeeOpttions(Employee* employee ) {
 	
 	    int choice;				    
 	    Employeemenu();
-	    cin >> choice;
+	   
 	    while (true) {
+			Employeemenu();
+			cin >> choice;
+			
+			
 		   switch (choice) {
 
 		   case 1:
 			  newclient(employee);
-			  
-			  return true;
+			  break;
 		   case 2:
 			  listallclient(employee);
 
-			  return true;
+			  break;
 		   case 3:
 			  searchforclient(employee);
 
-			  return true; 
+			  break;
 		   case 4:
-			  return false;
+			   editClientInfo(employee);
+			   break;
+		   case 5:
+			   return false;
+
 		   default:
 			  cout << "+----------------------+\n";
 			  cout << "| Incorrect Enter !! | \n";
 			  cout << "+----------------------+\n";
+			  break;
 			  
 		   }
 

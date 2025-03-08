@@ -1,6 +1,7 @@
 #pragma once
 #include"FileManger.h"
 
+
 class ClientManger
 {
 
@@ -109,6 +110,7 @@ public:
                    return false;
             default:
                 cout << "Invalid choice, please try again." << endl;
+                break;
             }
         }
     }

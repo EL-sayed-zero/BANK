@@ -49,43 +49,49 @@ public:
 
 
 	}
-
 	static bool AdminOptions(Admin* admin) {
 		int choice;
 		Employee newEmployee;
-		PrintEmployeemenu();
-		cin >> choice;
-			switch (choice) {
 
+		while (true) {
+			PrintEmployeemenu();
+			cin >> choice;
+
+			switch (choice) {
 			case 1:
-				EmployeeManger::newclient(admin);
-				return true;
+				EmployeeManger::newclient(admin); 
+				break;
 			case 2:
-				EmployeeManger::listallclient(admin);
-				return true;
+				EmployeeManger::listallclient(admin); 
+				break;
 			case 3:
-				EmployeeManger::searchforclient(admin);
-				return true;
+				EmployeeManger::searchforclient(admin); 
+				break;
 			case 4:
 				EmployeeManger::editClientInfo(admin);
-				return true;
+				break;
 			case 5:
 				employee_list();
-				return true;
+				break;
 			case 6:
+				cout << "Enter new employee details:\n";
 				cin >> newEmployee;
 				add_employee(newEmployee);
-				return true;
+				break;
 			case 7:
 				search_employee(admin);
-				return true;
+				break;
+			case 8:
+				return false;
 			default:
 				cout << "+----------------------+\n";
-				cout << "| Incorrect Enter !! | \n";
+				cout << "| Incorrect Entry !!   |\n";
 				cout << "+----------------------+\n";
-
+				break;
 			}
+		}
 	}
+
 
 
 
