@@ -40,7 +40,7 @@ public:
 		cout << "Please insert your id:";
 		cin >> id;
 		if (employee->searchClient(id) != nullptr) {
-		    cout << employee->searchClient(id);
+		    cout << *employee->searchClient(id);
 		}
 		else {
 
@@ -76,7 +76,7 @@ public:
 		   cin >> newName;
 		   client->setName(newName);
 		   cout << "+-----------------------------+\n";
-		   cout << "| Name changed successfully |\n";
+		   cout << "| Name changed successfully   |\n";
 		   cout << "+-----------------------------+\n";
 		   break;
 	    case 2:
@@ -84,7 +84,7 @@ public:
 		   cin >> newPassword;
 		   client->setPW(newPassword);
 		   cout << "+---------------------------------+\n";
-		   cout << "| Password changed successfully |\n";
+		   cout << "| Password changed successfully   |\n";
 		   cout << "+---------------------------------+\n";
 		   break;
 	    case 3:
@@ -92,20 +92,20 @@ public:
 		   cin >> newBalance;
 		   client->setBalance(newBalance);
 		   cout << "+--------------------------------+\n";
-		   cout << "| Balance changed successfully |\n";
+		   cout << "| Balance changed successfully   |\n";
 		   cout << "+--------------------------------+\n";
 		   break;
 	    case 4:
 		   return;
 	    default:
 		   cout << "+----------------------+\n";
-		   cout << "| Incorrect Enter !! |\n";
+		   cout << "| Incorrect Enter !!   |\n";
 		   cout << "+----------------------+\n";
 
 	    }
 	    employee->edit_client(client->getId(), client->getName(), client->getPassword(), client->getBalance());
 
-	    
+	    delete client;
 	}
 	static Employee* login(int id, string password) {
 
@@ -143,9 +143,7 @@ public:
 		
 	static bool employeeOpttions(Employee* employee ) {
 	
-	    int choice;				    
-	    Employeemenu();
-	   
+	    int choice;				    	   
 	    while (true) {
 			Employeemenu();
 			cin >> choice;

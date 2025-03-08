@@ -22,7 +22,11 @@ public:
         string newPassword;
         cout << "Enter new password (8-20 characters): ";
         cin >> newPassword;
-        person->setPW(newPassword);
+        Employee employee;
+        Client* client = employee.searchClient(person->getId());
+        client->setPW(newPassword);
+        employee.edit_client(client->getId(), client->getName(), client->getPassword(), client->getBalance());
+        delete client;
     }
 
     static Client* login(int id, string password) {
@@ -63,6 +67,7 @@ public:
         int choice;
         double amount;
         int Id;
+        Employee employee;
 
         while (true) {
             printClientMenu();
@@ -76,12 +81,14 @@ public:
                 cout << "Enter amount to deposit: ";
                 cin >> amount;
                 client->deposite(amount);
+                employee.edit_client(client->getId(), client->getName(), client->getPassword(), client->getBalance());
                 cout << "Deposit successful!" << endl;
                 break;
             case 3:
                 cout << "Enter amount to withdraw: ";
                 cin >> amount;
                 client->withdrow(amount);
+                employee.edit_client(client->getId(), client->getName(), client->getPassword(), client->getBalance());
                 cout << "Withdrawal successful!" << endl;
                 break;
             case 4:
@@ -95,11 +102,14 @@ public:
                    Client* recipient = e.searchClient(Id);
                     if (recipient) {
                         client->transfare(amount, *recipient);
+                        e.edit_client(client->getId(), client->getName(), client->getPassword(), client->getBalance());
+                        e.edit_client(recipient->getId(), recipient->getName(), recipient->getPassword(), recipient->getBalance());
                         cout << "Transfer successful!" << endl;
                     }
                     else {
                         cout << "Client  not found!" << endl;
                     }
+                    delete recipient;
                 }
                 break;
             case 5:
