@@ -13,7 +13,9 @@ public:
 		cout << "5-Employee list\n";
 		cout << "6-add employee\n";
 		cout << "7-search employee\n";
-		cout << "8-logout\nenter your choise:";
+		cout << "8- delete admin\n";
+		cout << "9- delete employee\n";
+		cout << "10- logout\nenter your choise:";
 		
 
 
@@ -82,6 +84,12 @@ public:
 				search_employee(admin);
 				break;
 			case 8:
+				delete_admin(admin);
+				break;
+			case 9:
+				delete_employee(admin);
+				break;
+			case 10:
 				return false;
 			default:
 				cout << "+----------------------+\n";
@@ -157,6 +165,17 @@ public:
 		admin.edit_employee(admin.searchemployee(id)->getId(), admin.searchemployee(id)->getName(), admin.searchemployee(id)->getPassword(), admin.searchemployee(id)->getSalary());
 	}
 
-
+	static void delete_employee(Admin* admin) {
+		int id;
+		cout << "insert the id:";
+		cin >> id;
+		admin->delete_employee(id);
+	}
+	static void delete_admin(Admin* admin) {
+		int id;
+		cout << "insert the id:";
+		cin >> id;
+		admin->delete_admin(id);
+	}
 
 };

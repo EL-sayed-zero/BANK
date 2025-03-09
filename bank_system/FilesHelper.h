@@ -42,6 +42,6 @@ public:
 
 	static void clearFile(string fileName, string lastfileid);
 		
-	
+	static void delete_record(string filename, int id);
 };
 
