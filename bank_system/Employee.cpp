@@ -131,7 +131,46 @@ void Employee::edit_client(int id, string name, string password, double balance)
 
    
 }
+void Employee::delete_client(int id)
+{
 
+    Client* client = searchClient(id);
+
+    if (client == nullptr) {
+        cout << "id not found";
+        return;
+    }
+
+    //edit client attributes
+    ifstream Rfile("client.txt", ios::in);
+    ofstream ofile("temp.txt");
+    string line;
+    while (getline(Rfile, line)) {
+
+        Client old_client = ParserREad::parse_to_client(line);
+        if (id == old_client.getId()) {
+            continue;
+        }
+        else {
+            ofile << line << endl;
+        }
+    }
+
+
+
+    Rfile.close();
+    ofile.close();
+
+    remove("client.txt");
+    rename("temp.txt", "client.txt");
+
+    cout << "Client deleted successfully \n";
+
+    delete client;
+
+
+
+}
 
 
 

@@ -18,11 +18,11 @@ public:
     Admin(double salary, int id, string name, string password);
 
 
+    Admin* search_admin(int id);
 
-
-
+    void delete_employee(int id);
     void display();
-
+    void delete_admin(int id);
     // Client methods
 
    

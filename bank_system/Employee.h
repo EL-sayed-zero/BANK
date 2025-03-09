@@ -38,6 +38,7 @@ public:
     void clients_list();
 
     Client* searchClient(int id);
+    void delete_client(int id);
 
     void edit_client(int id, string name, string password, double balance);
 

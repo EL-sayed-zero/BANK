@@ -12,7 +12,9 @@ class FileManger :
 
 public:
 
-
+    void delete_one_record(string filename, int id) {
+        FilesHelper::delete_record(filename, id);
+    }
 
     void add_Employee(Employee person);
 

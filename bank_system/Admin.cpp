@@ -11,6 +11,44 @@ void Admin::display()
     cout << "admin info \n";
     Employee::display();
 }
+
+
+void Admin::delete_admin(int id)
+{
+    Admin* admin = search_admin(id);
+
+    if (admin == nullptr) {
+        cout << "id not found";
+        return;
+    }
+
+    //edit client attributes
+    ifstream Rfile("admin.txt", ios::in);
+    ofstream ofile("temp.txt");
+    string line;
+    while (getline(Rfile, line)) {
+
+        Admin old_admin = ParserREad::parse_to_admin(line);
+        if (id == old_admin.getId()) {
+            continue;
+        }
+        else {
+            ofile << line << endl;
+        }
+    }
+
+
+
+    Rfile.close();
+    ofile.close();
+
+    remove("admin.txt");
+    rename("temp.txt", "admin.txt");
+
+    cout << "admin deleted successfully \n";
+
+    delete admin;
+}
     //hi boss
 
 void Admin::addEmployee(Employee& employee)
@@ -106,7 +144,46 @@ void Admin::edit_employee(int id, string name, string password, double salary) {
 
 
 }
+void Admin::delete_employee(int id)
+{
 
+    Employee* employee = searchemployee(id);
+
+    if (employee == nullptr) {
+        cout << "id not found";
+        return;
+    }
+
+    //edit client attributes
+    ifstream Rfile("Employee.txt", ios::in);
+    ofstream ofile("temp.txt");
+    string line;
+    while (getline(Rfile, line)) {
+
+        Employee old_employee = ParserREad::parse_to_Employee(line);
+        if (id == old_employee.getId()) {
+            continue;
+        }
+        else {
+            ofile << line << endl;
+        }
+    }
+
+
+
+    Rfile.close();
+    ofile.close();
+
+    remove("Employee.txt");
+    rename("temp.txt", "Employee.txt");
+
+    cout << "Employee deleted successfully \n";
+
+    delete employee;
+
+
+
+}
 
 
 istream& operator>>(istream& in, Admin& admin)
@@ -144,3 +221,32 @@ ostream& operator<<(ostream& out, Admin& admin)
     return out;
 }
 
+
+
+    Admin* Admin::search_admin(int id) {
+
+
+    ifstream file("admin.txt", ios::in);
+
+
+    if (!file) {
+        cout << "Error opening file!\n";
+        return nullptr;
+    }
+    string line;
+
+
+    while (getline(file, line)) {
+
+        Admin admin = ParserREad::parse_to_admin(line);
+
+        if (admin.getId() == id) {
+            return new Admin(admin.getSalary(), admin.getId(), admin.getName(), admin.getPassword());
+        }
+    }
+    file.close();
+    return nullptr;
+
+
+
+}

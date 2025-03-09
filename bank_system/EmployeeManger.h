@@ -21,8 +21,9 @@ private:
 		cout << "2-clients list\n";
 		cout << "3-search client\n";
 		cout << "4-edit client\n";
-		cout << "5-Exit\n";
-		cout << "Enter Choice Number : ";
+		cout << "5- Delete client\n";
+		cout << "6-Exit\n";
+		cout << "Enter Choice Number : \n";
 	}
 public:
 	static void newclient(Employee* employee) {
@@ -51,6 +52,12 @@ public:
 		}
 
 
+	}
+	static void delete_client(Employee* employee) {
+		int id;
+		cout << "please insert the id:";
+		cin >> id;
+		employee->delete_client(id);
 	}
 
 
@@ -166,6 +173,9 @@ public:
 			   editClientInfo(employee);
 			   break;
 		   case 5:
+			   delete_client(employee);
+			   break;
+		   case 6:
 			   return false;
 
 		   default:
