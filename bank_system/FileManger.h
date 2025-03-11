@@ -3,12 +3,17 @@
 #include<fstream>
 #include <sstream>
 #include"FilesHelper.h"
+#include <windows.h>
 
 
 class FileManger :
     public DataSourceInterface
 
 {
+    static void setConsoleColor(int color) {
+        HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+        SetConsoleTextAttribute(hConsole, color);
+    }
 
 public:
 

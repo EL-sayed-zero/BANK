@@ -80,7 +80,7 @@ void Client::transfare(double amount, Client& client)
 
 void Client::checkBalance() const
 {
-    cout << balance << endl;
+    cout << "Your Balance Is : " << balance << endl;
 }
 
 void Client::display()

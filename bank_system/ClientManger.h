@@ -4,11 +4,16 @@
 
 class ClientManger
 {
-
+    static void setConsoleColor(int color) {
+        HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+        SetConsoleTextAttribute(hConsole, color);
+    }
 public:
 
     static void printClientMenu() {
-        cout << "\n===== Client Menu =====" << endl;
+        setConsoleColor(1);
+        cout << "===== Client Menu =====\n" << endl;
+	   setConsoleColor(7);
         cout << "1. Check Balance" << endl;
         cout << "2. Deposit Money" << endl;
         cout << "3. Withdraw Money" << endl;
@@ -47,7 +52,13 @@ public:
             Client client = ParserREad::parse_to_client(line);
 
             if (id == client.getId() && password==client.getPassword()) {
-                cout << "Login successful!" << endl;
+                setConsoleColor(10);
+                cout << "\t\t\t Login successful! " << endl;
+			 setConsoleColor(7);
+
+			 Sleep(1000);
+			 system("cls");
+
                 return new Client(client.getBalance(), client.getId(), client.getName(), client.getPassword());
 
             }
@@ -72,7 +83,7 @@ public:
         while (true) {
             printClientMenu();
             cin >> choice;
-
+            system("cls");
             switch (choice) {
             case 1:
                 client->checkBalance();
@@ -96,6 +107,17 @@ public:
                 cin >> Id;
                 cout << "Enter amount to transfer: ";
                 cin >> amount;
+                if (Id == client->getId()) {
+				cout << "+---------------------------------+\n|";
+				setConsoleColor(4);
+				cout << " You can't transfer to yourself! " ;
+				setConsoleColor(7);
+				cout << "|\n+---------------------------------+\n";
+                    Sleep(2000);
+                    system("cls");
+
+				break;
+                }
 
                 {
                    Employee e;
@@ -107,6 +129,7 @@ public:
                         cout << "Transfer successful!" << endl;
                     }
                     else {
+
                         cout << "Client  not found!" << endl;
                     }
                     delete recipient;
@@ -117,9 +140,16 @@ public:
                 break;
             case 6:
                 cout << "Logging out..." << endl;
+                Sleep(3000);
+                system("cls");
                    return false;
             default:
+                system("cls");
+			 setConsoleColor(4);
                 cout << "Invalid choice, please try again." << endl;
+			 setConsoleColor(7);
+                Sleep(3000);
+			 system("cls");
                 break;
             }
         }

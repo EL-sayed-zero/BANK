@@ -125,7 +125,6 @@ void Employee::edit_client(int id, string name, string password, double balance)
     remove("client.txt");
     rename("temp.txt", "client.txt");
 
-    cout << "Client updated successfully \n";
 
     delete client; 
 
@@ -164,7 +163,7 @@ void Employee::delete_client(int id)
     remove("client.txt");
     rename("temp.txt", "client.txt");
 
-    cout << "Client deleted successfully \n";
+    
 
     delete client;
 

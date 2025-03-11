@@ -99,9 +99,8 @@ Employee* Admin::searchemployee(int id) {
 
 void Admin::edit_employee(int id, string name, string password, double salary) {
 
-    int choice;
-    cin >> choice;
-    Employee* employee = searchemployee(choice);
+   
+    Employee* employee = searchemployee(id);
 
     if (employee == nullptr) {
         cout << "id not found";
@@ -119,7 +118,7 @@ void Admin::edit_employee(int id, string name, string password, double salary) {
     while (getline(Rfile, line)) {
 
         Employee old_employee = ParserREad::parse_to_Employee(line);
-        if (choice == old_employee.getId()) {
+        if (id == old_employee.getId()) {
             ofile << employee->getName() << "|" << employee->getId() << "|" << employee->getSalary() << "|" << employee->getPassword() << endl;
 
         }

@@ -2,7 +2,6 @@
 #include"AdminManger.h"
 #include"ClientManger.h"
 #include"EmployeeManger.h"
-#include <windows.h>
 class Screen
 {
 
@@ -12,17 +11,23 @@ class Screen
     }
 public:
     static void printThankYou() {
-
+	   system("cls");
         setConsoleColor(11);
-        cout <<" /$$$$$$$$ /$$                           /$$             /$$     /$$                   \n";
-        cout <<"|__  $$__/| $$                          | $$            |  $$   /$$/                   \n";
-        cout <<"   | $$   | $$$$$$$   /$$$$$$  /$$$$$$$ | $$   /$$       \  $$ /$$//$$$$$$  /$$   /$$  \n";
-        cout <<"   | $$   | $$__  $$ |____  $$| $$__  $$| $$  /$$/        \  $$$$//$$__  $$| $$  | $$  \n";
-        cout <<"   | $$   | $$  \ $$  /$$$$$$$| $$  \ $$| $$$$$$/          \  $$/| $$  \ $$| $$  | $$  \n";
-        cout <<"   | $$   | $$  | $$ /$$__  $$| $$  | $$| $$_  $$           | $$ | $$  | $$| $$  | $$  \n";
-        cout <<"   | $$   | $$  | $$|  $$$$$$$| $$  | $$| $$ \  $$          | $$ |  $$$$$$/|  $$$$$$/  \n";
-        cout <<"   |__/   |__/  |__/ \_______/|__/  |__/|__/  \__/          |__/  \______/  \______/   \n";
+       
+        
+        cout << "\t\t /$$$$$$$$ /$$                           /$$             /$$     /$$                     \n";
+        cout << "\t\t|__  $$__/| $$                          | $$            |  $$   /$$/                     \n";
+        cout << "\t\t   | $$   | $$$$$$$   /$$$$$$  /$$$$$$$ | $$   /$$       \  $$ /$$/   /$$$$$$  /$$   /$$ \n";
+        cout << "\t\t   | $$   | $$__  $$ |____  $$| $$__  $$| $$  /$$/        \  $$$$/   /$$__  $$| $$  | $$ \n";
+        cout << "\t\t   | $$   | $$  \ $$  /$$$$$$$| $$  \ $$| $$$$$$/          \  $$/   | $$  \ $$| $$  | $$ \n";
+        cout << "\t\t   | $$   | $$  | $$ /$$__  $$| $$  | $$| $$_  $$           | $$    | $$  | $$| $$  | $$ \n";
+        cout << "\t\t   | $$   | $$  | $$|  $$$$$$$| $$  | $$| $$ \  $$          | $$    |  $$$$$$/|  $$$$$$/ \n";
+        cout << "\t\t   |__/   |__/  |__/ \_______/|__/  |__/|__/  \__/          |__/     \______/  \______/  \n";
+                                                                                        
         setConsoleColor(7);
+                                                                                        
+                                                                                        
+
   
     }
 
@@ -79,19 +84,23 @@ public:
 
       static void loginOptions() {
 
-          cout << "\nLogin as:" << endl;
+          cout << "Login As :" << endl;
           cout << "1. Client" << endl;
           cout << "2. Employee" << endl;
           cout << "3. Admin" << endl;
           cout << "4. Exit" << endl;
-          cout << "Enter your choice: ";
+          cout << "Enter Your Choice : ";
 
-     }
+      }
 
 
 
       static void invalid(int c) {
-          cout << "\nInvalid choice (" << c << ")! Please try again.\n" << endl;
+          system("cls");
+
+          cout << "Invalid choice (" << c << ")! Please try again\n" << endl;
+          Sleep(3000);
+          system("cls");
       }
 
 
@@ -99,6 +108,7 @@ public:
           int choice;
           loginOptions();
           cin >> choice;
+          system("cls");
 
           while (choice < 1 || choice > 4) {
               invalid(choice);
@@ -130,12 +140,13 @@ public:
                   cin >> id;
                   cout << "Enter your password:";
                   cin >> password;
+                  system("cls");
                    client = ClientManger::login(id, password);
                   if (client != nullptr) {
 
                       if (!ClientManger::clientOptions(client)) {
                           loginscreen();
-                     }
+                      }
                   }
                   else {
                       cout << "Invalid login \n";
@@ -148,6 +159,7 @@ public:
                   cin >> id;
                   cout << "Enter your password:";
                   cin >> password;
+                  system("cls");
                     employee=  EmployeeManger::login(id, password);
                 if (employee != nullptr) {
                     if (!EmployeeManger::employeeOpttions(employee)) {
@@ -165,6 +177,7 @@ public:
                   cin >> id;
                   cout << "Enter your password:";
                   cin >> password;
+                  system("cls");
                 admin =AdminManger::login(id, password);
                  if (admin != nullptr) {
                      if (!AdminManger::AdminOptions(AdminManger::login(id, password))) {
@@ -172,6 +185,7 @@ public:
                    }
                  }
                  else {
+
                      cout << "Invalid login \n";
                  }
                 
@@ -183,6 +197,7 @@ public:
                 
               default:
                   invalid(choise);
+                
                   break;
               }
           }

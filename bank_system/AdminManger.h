@@ -3,6 +3,10 @@
 
 class AdminManger
 {
+    static void setConsoleColor(int color) {
+	   HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+	   SetConsoleTextAttribute(hConsole, color);
+    }
 
 public:
 	static void PrintEmployeemenu() {
@@ -15,7 +19,8 @@ public:
 		cout << "7-search employee\n";
 		cout << "8- delete admin\n";
 		cout << "9- delete employee\n";
-		cout << "10- logout\nenter your choise:";
+		cout << "10- edit employee\n";
+		cout << "11- logout\nenter your choise:";
 		
 
 
@@ -58,19 +63,22 @@ public:
 		while (true) {
 			PrintEmployeemenu();
 			cin >> choice;
-
+			system("cls");
 			switch (choice) {
 			case 1:
 				EmployeeManger::newclient(admin); 
+				system("cls");
 				break;
 			case 2:
 				EmployeeManger::listallclient(admin); 
+
 				break;
 			case 3:
 				EmployeeManger::searchforclient(admin); 
 				break;
 			case 4:
 				EmployeeManger::editClientInfo(admin);
+				system("cls");
 				break;
 			case 5:
 				employee_list();
@@ -79,22 +87,38 @@ public:
 				cout << "Enter new employee details:\n";
 				cin >> newEmployee;
 				add_employee(newEmployee);
+				system("cls");
 				break;
 			case 7:
 				search_employee(admin);
 				break;
 			case 8:
 				delete_admin(admin);
+				system("cls");
 				break;
 			case 9:
 				delete_employee(admin);
+				system("cls");
 				break;
 			case 10:
+			    int id;
+			    cout << "Enter the id of the employee you want to edit: ";
+			    cin >> id;
+			    edit_employee(id);
+			    system("cls");
+			    break;
+			case 11:
 				return false;
 			default:
-				cout << "+----------------------+\n";
-				cout << "| Incorrect Entry !!   |\n";
-				cout << "+----------------------+\n";
+			    system("cls");
+				cout << "+----------------------+\n|";
+				setConsoleColor(4);
+				cout << " Incorrect Entry !!   ";
+
+				setConsoleColor(7);
+				cout << "|\n+----------------------+\n";
+				Sleep(3000);
+				system("cls");
 				break;
 			}
 		}
@@ -131,35 +155,43 @@ public:
 		Admin admin;
 		if (admin.searchemployee(id)) {
 			int choice;
-			cout<<"1-change name\n";
+			cout << "1-change name\n";
 			cout << "2-change password\n";
 			cout << "3-change salary\n";
-			cout << "enter your choice:";
+			cout << "enter your choice : ";
 			cin >> choice;
+			system("cls");
 				string name;
 				string password;
 			switch(choice)
 			{
 			case 1:
-				cout << "enter the new name:";
+				cout << "enter the new name : ";
 				cin >> name;
 				admin.searchemployee(id)->setName(name);
+				system("cls");
 				break;
 			case 2:
-				cout << "enter the new password:";
+				cout << "enter the new password : ";
 				cin >> password;
 				admin.searchemployee(id)->setPW(password);
+				system("cls");
 				break;
 			case 3:
-				cout << "enter the new salary:";
+				cout << "enter the new salary : ";
 				double salary;
 				cin >> salary;
 				admin.searchemployee(id)->setSalary(salary);
+				system("cls");
 					break;
 			}
 		}
 		else {
+		    setConsoleColor(4);
 			cout << "not found";
+			setConsoleColor(7);	 
+			Sleep(3000); 
+			system("cls");
 			return;
 		}
 		admin.edit_employee(admin.searchemployee(id)->getId(), admin.searchemployee(id)->getName(), admin.searchemployee(id)->getPassword(), admin.searchemployee(id)->getSalary());
